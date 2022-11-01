@@ -20,6 +20,34 @@ export const GenreList = () => {
         [popular]
     )
     */
+    const loggedIn = JSON.parse(localStorage.getItem("music_user")).id
+    const handleSaveButtonClick = (event, artists) => {
+        event.preventDefault()
+
+        const GenreToSendToAPI = {
+            genreId: event.target.id,
+            userId: loggedIn
+        }
+
+        return fetch(`http://localhost:8088/genres?id=${artists.genreId}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+
+            },
+            body: JSON.stringify(GenreToSendToAPI)
+        }
+        )
+            .then(response => response.json())
+            .then(() => {
+                navigate("/artists")
+            })
+        // TODO: Create the object to be saved to the API
+
+
+        // TODO: Perform the fetch() to POST the object to the API
+
+    }
 
     useEffect(
         () => {
@@ -42,7 +70,12 @@ export const GenreList = () => {
                     genres.map(
                         (genre) => {
                             return <section className="genre">
-                                <header>{genre.genreName}</header>
+                                <button
+                                    id={genre.id}
+                                    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                                    className="list-artists">
+                                    {genre.genreName}
+                                </button>
 
 
                             </section>

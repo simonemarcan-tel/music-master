@@ -3,6 +3,7 @@ import { ArtistList } from "../artists/ArtistList"
 import { ArtistForm } from "../artists/ArtistForm"
 import { GenreList } from "../genres/GenreList"
 import { MyLikes } from "../likes/MyLikes"
+import { MyArtistList } from "../forms/MyArtistList"
 
 export const ApplicationViews = () => {
 	return <>
@@ -24,6 +25,8 @@ export const ApplicationViews = () => {
 					element={<GenreList />} />
 				<Route path="likes"
 					element={<MyLikes />} />
+				<Route path="forms" element={<MyArtistList />} />
+
 			</Route>
 		</Routes >
 	</>

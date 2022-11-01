@@ -24,22 +24,45 @@ export const ArtistList = () => {
         return fetch(`http://localhost:8088/myLikes`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
 
             },
             body: JSON.stringify(DataToSendToAPI)
-        })
+        }
+        )
             .then(response => response.json())
             .then(() => {
                 navigate("/likes")
             })
-
         // TODO: Create the object to be saved to the API
 
 
         // TODO: Perform the fetch() to POST the object to the API
 
     }
+
+    // return fetch(`http://localhost:8088/myLikes`, {
+    //method: "POST",
+    // headers: {
+    //     "Content-Type": "application/json",
+
+    // },
+    // body: JSON.stringify(DataToSendToAPI)
+    // )
+    // }
+    //   .then(response => response.json())
+    //  .then(() => {
+    //   navigate("/likes")
+    // })
+    //  // TODO: Create the object to be saved to the API
+
+
+    //  // TODO: Perform the fetch() to POST the object to the API
+
+
+    // }
+
+
 
     useEffect(
         () => {
@@ -64,27 +87,20 @@ export const ArtistList = () => {
         [] //initial state
     )
 
-    /*  useEffect(
-          () => {
-              const myArtists = artists.filter(artist => artist.userId === masterUserObject.id)
-              setFiltered(myArtists)
-          },
-          [artists]
-      )
-      */
+
 
     return (
 
         <div>
 
-            <button onClick={() => { setPopular(true) }}>✩Popular Artists✩</button>
-            <button onClick={() => { setPopular(false) }}>✯All Artists✯</button>
-            <button onClick={() => navigate("/artist/create")}>✿ Create Artist Ticket ✿</button>
+            <button onClick={() => { setPopular(true) }}>★Popular Artists★</button>
+            <button onClick={() => { setPopular(false) }}>★All Artists★</button>
+            <button onClick={() => navigate("/artist/create")}>★Create Artist Ticket★</button>
 
 
 
             <h2>✩ARTIST LIST✩</h2>
-
+            <div>・・・・"★" = POPULAR ARTIST・・・・</div>
             <article className="artists">
                 {
                     filteredArtists.map(
@@ -92,13 +108,13 @@ export const ArtistList = () => {
                             return <section className="artist">
                                 <header>{artist.artistName}</header>
                                 <header>{artist.genre?.genreName}</header>
-                                <footer> {artist.popularArtist ? "❣" : "(Lesser Known)"}
+                                <footer> {artist.popularArtist ? "★" : ""}
                                 </footer>
                                 <button
                                     id={artist.id}
                                     onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                                     className="btn btn-primary">
-                                    Like This Artist
+                                    ♡
                                 </button>
                             </section>
                         }
@@ -108,4 +124,6 @@ export const ArtistList = () => {
             </article>
         </div>
     )
+
 }
+
