@@ -1,15 +1,16 @@
- .navbar {
-     display: flex;
-     flex-wrap: nowrap;
-     justify-content: center;
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border: dotted pink;
+    background-color: rgb(255, 70, 101);
+}
 
- }
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+}
 
- .navbar__item {
-     flex-basis: 20%;
-     list-style-type: none;
- }
-
- .navbar__logout {
-     margin-top: auto;
- }
+.navbar__logout {
+    margin-top: auto;
+}

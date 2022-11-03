@@ -1,0 +1,12 @@
+.artists {
+    display: flex;
+    flex-direction: column;
+}
+
+.artist {
+    background-color: rgb(242, 213, 167);
+    border: dotted pink;
+    padding: 0.7rem;
+    margin: 0.7rem;
+
+}

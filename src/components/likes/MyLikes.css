@@ -1,0 +1,16 @@
+.likes {
+    display: flex;
+    flex-direction: column;
+}
+
+.like {
+    background-color: pink;
+    border: dotted rgb(237, 184, 86);
+    padding: 0.7rem;
+    margin: 0.5rem;
+
+}
+
+.delete-like {
+    background-color: rgb(241, 113, 134);
+}

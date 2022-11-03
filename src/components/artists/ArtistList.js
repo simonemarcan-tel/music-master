@@ -17,7 +17,7 @@ export const ArtistList = () => {
         event.preventDefault()
 
         const DataToSendToAPI = {
-            artistId: event.target.id,
+            artistId: parseInt(event.target.id),
             userId: loggedIn
         }
 

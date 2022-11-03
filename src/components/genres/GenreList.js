@@ -3,6 +3,7 @@ import "./GenreList.css"
 import { useNavigate } from "react-router-dom"
 export const GenreList = () => {
     const [genres, setGenres] = useState([])
+    const [specificArtists, setSpecificArtists] = useState([])
     const navigate = useNavigate()
 
     /*const localMasterUser = localStorage.getItem("master_user")
@@ -21,7 +22,8 @@ export const GenreList = () => {
     )
     */
     const loggedIn = JSON.parse(localStorage.getItem("music_user")).id
-    const handleSaveButtonClick = (event, artists) => {
+
+    const handleSaveButtonClick = (event, genre) => {
         event.preventDefault()
 
         const GenreToSendToAPI = {
@@ -29,7 +31,7 @@ export const GenreList = () => {
             userId: loggedIn
         }
 
-        return fetch(`http://localhost:8088/genres?id=${artists.genreId}`, {
+        return fetch(`http://localhost:8088/artist?genreId=${genre.genreName}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,7 +42,7 @@ export const GenreList = () => {
         )
             .then(response => response.json())
             .then(() => {
-                navigate("/artists")
+                navigate("/artists/genreId")
             })
         // TODO: Create the object to be saved to the API
 
@@ -48,6 +50,11 @@ export const GenreList = () => {
         // TODO: Perform the fetch() to POST the object to the API
 
     }
+    /* useEffect(
+         () => {
+             const specificArtists = artists.filter(artist => artist.genreId)
+         }
+     ) */
 
     useEffect(
         () => {
@@ -59,7 +66,7 @@ export const GenreList = () => {
         },
         [] //initial state
     )
-
+    //id={genre.id}
     return (
 
         <div>
@@ -72,11 +79,10 @@ export const GenreList = () => {
                             return <section className="genre">
                                 <button
                                     id={genre.id}
-                                    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                                    className="list-artists">
-                                    {genre.genreName}
+                                    onClick={() => {
+                                        navigate(`/artist/${genre.id}`)
+                                    }}>{genre.genreName}
                                 </button>
-
 
                             </section>
                         }
@@ -84,6 +90,6 @@ export const GenreList = () => {
                 }
 
             </article>
-        </div>
+        </div >
     )
 }

@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import { Link } from "react"
 
 export const ArtistForm = () => {
-    const [forms, setForms] = useState([])
+
     const [form, update] = useState({
         artistName: "",
         artistGenre: "",
+        artistInstruments: "",
         popularArtist: false
 
     })
@@ -19,37 +21,67 @@ export const ArtistForm = () => {
 
 
     const handleSaveButtonClick = (event) => {
-
-
+        event.preventDefault()
         const FormToSendToAPI = {
-            artistId: event.target.id,
             userId: loggedIn,
-            artistGenre: form.genreId,
-            popularArtist: form.popularArtist,
-            instruments: form.instruments
+            artistName: form.artistName,
+            artistGenre: form.artistGenre,
+            artistInstruments: form.artistInstruments,
+            popularArtist: form.popularArtist
+        }
+        if (
+            form.artistName && form.artistGenre && form.artistInstruments) {
+
+            return fetch(`http://localhost:8088/myCreatedForms?userId=${loggedIn}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+
+                },
+                body: JSON.stringify(FormToSendToAPI)
+            }
+            )
+                .then(response => response.json())
+                .then(() => {
+                    navigate("/forms")
+                })
+            // TODO: Create the object to be saved to the API
+
+
+            // TODO: Perform the fetch() to POST the object to the API
 
         }
-
-
-        return fetch(`http://localhost:8088/myLikes`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-
-            },
-            body: JSON.stringify(FormToSendToAPI)
-        }
-        )
-            .then(response => response.json())
-            .then(() => {
-                navigate("/forms")
-            })
-        // TODO: Create the object to be saved to the API
-
-
-        // TODO: Perform the fetch() to POST the object to the API
-
     }
+
+    /* const FormToSendToAPI = {
+         artistId: event.target.id,
+         userId: loggedIn,
+         artistGenre: form.genreId,
+         popularArtist: form.popularArtist,
+         instruments: form.instruments
+
+     }
+
+
+     return fetch(`http://localhost:8088/myLikes`, {
+         method: "POST",
+         headers: {
+             "Content-Type": "application/json",
+
+         },
+         body: JSON.stringify(FormToSendToAPI)
+     }
+     )
+         .then(response => response.json())
+         .then(() => {
+             navigate("/forms")
+         })
+     // TODO: Create the object to be saved to the API
+
+
+     // TODO: Perform the fetch() to POST the object to the API
+*/
+
 
 
 
@@ -59,14 +91,23 @@ export const ArtistForm = () => {
             fetch(`http://localhost:8088/myCreatedForms?userId=${loggedIn}`)
                 .then(response => response.json())
                 .then((formsArray) => {
-                    setForms(formsArray)
+                    update(formsArray)
                 })
         },
         []
     )
+    // <Link to={`/forms/${form.id}/edit`}>Form {form.id}</Link>
+    useEffect(
+        () => {
+
+        }
+    )
     return (
         <form className="artistForm">
             <h2 className="artistForm__title">☆New Artist Ticket★</h2>
+            <header>
+
+            </header>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="artistName">Artist Name:</label>
@@ -110,11 +151,11 @@ export const ArtistForm = () => {
                             type="text"
                             className="form-control"
                             placeholder="Vocals"
-                            value={form.instruments}
+                            value={form.artistInstruments}
                             onChange={
                                 (evt) => {
                                     const copy = { ...form }
-                                    copy.instruments = evt.target.value
+                                    copy.artistInstruments = evt.target.value
                                     update(copy)
                                 }
                             } />
@@ -135,9 +176,10 @@ export const ArtistForm = () => {
                         } />
                 </div>
             </fieldset>
+
             <button
 
-                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                onClick={(event) => handleSaveButtonClick(event)}
                 className="btn btn-primary">
                 ★Save Artist☆
             </button>

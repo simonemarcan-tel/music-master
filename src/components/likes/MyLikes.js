@@ -23,12 +23,13 @@ export const MyLikes = () => {
 
 
     const deleteButton = (event, likeObject) => {
-
+        //vent.PreventDefault()
         fetch(`http://localhost:8088/myLikes/${likeObject.id}`, {
             method: "DELETE"
         })
             .then(() => {
                 setLikes()
+                navigate("/artists")
             })
 
 

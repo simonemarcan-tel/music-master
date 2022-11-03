@@ -28,7 +28,7 @@ export const NavBar = () => {
                 </li>
                 <li className="navbar__item active">
                     <Link className="navbar__link"
-                        to="/forms">✯My Artists✯</Link>
+                        to="/artists">✯My Artists✯</Link>
                 </li>
 
                 {
