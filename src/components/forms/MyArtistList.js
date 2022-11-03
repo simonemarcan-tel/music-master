@@ -12,7 +12,7 @@ export const MyArtistList = () => {
     const { artistId } = useParams()
     useEffect(
         () => {
-            fetch(`http://localhost:8088/myCreatedForms?userId=${loggedIn}`)
+            fetch(`http://localhost:8088/artists?userId=${loggedIn}&_expand=genre`)
 
                 .then(response => response.json())
                 .then((formArray) => {
@@ -46,8 +46,7 @@ export const MyArtistList = () => {
                                 <section className="form">
 
                                     <header>{form.artistName}</header>
-                                    <section>{form.artistGenre}</section>
-                                    <section>{form.artistInstruments}</section>
+                                    <section>{form.genre?.genreName}</section>
                                     <section> {form.popularArtist ? "★" : ""}
                                     </section>
                                 </section>

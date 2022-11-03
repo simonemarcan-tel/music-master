@@ -4,41 +4,74 @@ import { useEffect } from "react"
 import { Link } from "react"
 
 export const ArtistForm = () => {
-
+    const loggedIn = JSON.parse(localStorage.getItem("music_user")).id
+    const [genres, setGenres] = useState([])
     const [form, update] = useState({
         artistName: "",
-        artistGenre: "",
-        artistInstruments: "",
-        popularArtist: false
+        genreId: 0,
+        popularArtist: false,
+        userId: loggedIn
 
-    })
 
+    })/*<fieldset>
+                <div className="form-group">
+                    <label htmlFor="artistGenre">Artist Genre:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Soul"
+                        value={form.artistGenre}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...form }
+                                copy.artistGenre = evt.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+                
+            </fieldset>
+<fieldset>
+                    <div className="form-group">
+                        <label htmlFor="artistInstruments">Artist Instruments:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="Vocals"
+                            value={form.artistInstruments}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...form }
+                                    copy.artistInstruments = evt.target.value
+                                    update(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset> */
     const navigate = useNavigate()
-
-    const localMasterUser = localStorage.getItem("master_user")
-    const masterUserObject = JSON.parse(localMasterUser)
-    const loggedIn = JSON.parse(localStorage.getItem("music_user")).id
 
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
-        const FormToSendToAPI = {
-            userId: loggedIn,
+        const FormToSendToApi = {
             artistName: form.artistName,
-            artistGenre: form.artistGenre,
-            artistInstruments: form.artistInstruments,
-            popularArtist: form.popularArtist
+            genreId: form.genreId,
+            popularArtist: form.popularArtist,
+            userId: loggedIn
         }
-        if (
-            form.artistName && form.artistGenre && form.artistInstruments) {
 
-            return fetch(`http://localhost:8088/myCreatedForms?userId=${loggedIn}`, {
+        if (
+            form.artistName && form.genreId !== 0) {
+
+            return fetch(`http://localhost:8088/artists`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
 
                 },
-                body: JSON.stringify(FormToSendToAPI)
+                body: JSON.stringify(FormToSendToApi)
             }
             )
                 .then(response => response.json())
@@ -88,7 +121,7 @@ export const ArtistForm = () => {
     useEffect(
         () => {
 
-            fetch(`http://localhost:8088/myCreatedForms?userId=${loggedIn}`)
+            fetch(`http://localhost:8088/artists?userId=${loggedIn}`)
                 .then(response => response.json())
                 .then((formsArray) => {
                     update(formsArray)
@@ -99,8 +132,13 @@ export const ArtistForm = () => {
     // <Link to={`/forms/${form.id}/edit`}>Form {form.id}</Link>
     useEffect(
         () => {
-
-        }
+            fetch("http://localhost:8088/genres")
+                .then(response => response.json())
+                .then((genreArray) => {
+                    setGenres(genreArray)
+                })
+        },
+        [] //initial state
     )
     return (
         <form className="artistForm">
@@ -128,39 +166,24 @@ export const ArtistForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="artistGenre">Artist Genre:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Soul"
-                        value={form.artistGenre}
+                    <select
                         onChange={
                             (evt) => {
                                 const copy = { ...form }
-                                copy.artistGenre = evt.target.value
+                                copy.genreId = parseInt(evt.target.value)
                                 update(copy)
                             }
-                        } />
+                        }>
+                        <option>Select A Genre
+                        </option>
+                        {genres.map((genre) => (
+
+                            <option
+                                value={genre.id}>{genre.genreName}</option>
+                        ))}
+
+                    </select>
                 </div>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="artistInstruments">Artist Instruments:</label>
-                        <input
-                            required autoFocus
-                            type="text"
-                            className="form-control"
-                            placeholder="Vocals"
-                            value={form.artistInstruments}
-                            onChange={
-                                (evt) => {
-                                    const copy = { ...form }
-                                    copy.artistInstruments = evt.target.value
-                                    update(copy)
-                                }
-                            } />
-                    </div>
-                </fieldset>
             </fieldset>
             <fieldset>
                 <div className="form-group">

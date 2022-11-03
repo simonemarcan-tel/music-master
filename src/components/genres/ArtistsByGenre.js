@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 export const ArtistsByGenre = () => {
     const [artists, setArtists] = useState([])
-    const [genre, update] = useState([])
+    const [genre, update] = useState()
     const navigate = useNavigate()
+    const { genreId } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:8088/artists?genreId=${genre.id}`)
+        fetch(`http://localhost:8088/artists?genreId=${genreId}&_expand=genre`)
             .then((res) => res.json())
             .then((artistsArray) => {
                 setArtists(artistsArray)
@@ -17,26 +18,8 @@ export const ArtistsByGenre = () => {
     /*const  = (event, genre) => {
         event.preventDefault()*/
 
-    const GenreToSendToAPI = {
-        genreId: artists.genreId
 
-    }
-
-    /* return (fetch(`http://localhost:8088/artist?genreId=${genre.genreId}`, {
-         method: "POST",
-         headers: {
-             "Content-Type": "application/json",
- 
-         },
-         body: JSON.stringify(GenreToSendToAPI)
-     }
-     )
-         .then(response => response.json())
-         .then(() => {
-             navigate("/artists/genreId")
-         })
-         // TODO: Create the object to be saved to the API
-     ) */
+    // TODO: Create the object to be saved to the API
 
     // TODO: Perform the fetch() to POST the object to the API
 
@@ -44,7 +27,7 @@ export const ArtistsByGenre = () => {
     return (
 
         <div>
-            <h2>✩ARTISTS OF {genre.id}✩</h2>
+            <h2>✩ARTISTS OF {artists[0]?.genre?.genreName}✩</h2>
 
             <article className="genres">
                 {

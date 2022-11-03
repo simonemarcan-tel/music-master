@@ -3,11 +3,14 @@ import { useNavigate, useParams } from "react-router-dom"
 
 // <footer>Popular Artist: {form.popularArtist ? "★" : "No"}</footer>
 export const FormEdit = () => {
+    const loggedIn = JSON.parse(localStorage.getItem("music_user")).id
+    const [genres, setGenres] = useState([])
     const [form, update] = useState({
         artistName: "",
-        artistGenre: "",
-        artistInstruments: "",
-        popularArtist: false
+        genreId: 0,
+        popularArtist: false,
+        userId: loggedIn
+
 
     })
 
@@ -16,7 +19,7 @@ export const FormEdit = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:8088/myCreatedForms/${artistId}`)
+        fetch(`http://localhost:8088/artists/${artistId}`)
             .then(response => response.json())
             .then((data) => {
                 update(data)
@@ -26,7 +29,7 @@ export const FormEdit = () => {
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        return fetch(`http://localhost:8088/myCreatedForms/${form.id}`, {
+        return fetch(`http://localhost:8088/artists/${form.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +43,7 @@ export const FormEdit = () => {
     }
     const deleteButton = (event, form) => {
         event.preventDefault()
-        fetch(`http://localhost:8088/myCreatedForms/${form.id}`, {
+        fetch(`http://localhost:8088/artists/${artistId}`, {
             method: "DELETE"
         })
             // .then(() => {
@@ -54,6 +57,16 @@ export const FormEdit = () => {
 
 
     }
+    useEffect(
+        () => {
+            fetch("http://localhost:8088/genres")
+                .then(response => response.json())
+                .then((genreArray) => {
+                    setGenres(genreArray)
+                })
+        },
+        [] //initial state
+    )
 
     return <form className="artistForm">
         <h2 className="artistForm__title">Artist Form</h2>
@@ -76,37 +89,24 @@ export const FormEdit = () => {
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="artistGenre">Artist Genre:</label>
-                <textarea
-                    required autoFocus
-                    type="text"
-                    className="form-control"
-                    value={form.artistGenre}
+                <select
                     onChange={
                         (evt) => {
                             const copy = { ...form }
-                            copy.artistGenre = evt.target.value
+                            copy.genreId = parseInt(evt.target.value)
                             update(copy)
                         }
-                    } />
+                    }>
+                    <option>Select A Genre
+                    </option>
+                    {genres.map((genre) => (
+
+                        <option
+                            value={genre.id}>{genre.genreName}</option>
+                    ))}
+
+                </select>
             </div>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="artistInstruments">Artist Instruments:</label>
-                    <textarea
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        value={form.artistInstruments}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...form }
-                                copy.artistInstruments = evt.target.value
-                                update(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
         </fieldset>
         <fieldset>
             <div className="form-group">
