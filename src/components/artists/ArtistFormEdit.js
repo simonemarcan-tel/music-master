@@ -126,7 +126,7 @@ export const FormEdit = () => {
         <button
 
             onClick={(event) => handleSaveButtonClick(event)}
-            className="btn btn-primary">
+            className="btn__btn-primary">
             ★Save Changes☆
         </button>
         <button

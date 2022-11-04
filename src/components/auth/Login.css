@@ -4,7 +4,7 @@ h1 {
     font-style: normal;
     font-family: monospace;
     background-image: url();
-
+    color: thistle;
 }
 
 fieldset {
@@ -19,6 +19,7 @@ fieldset {
     display: inline-block;
     margin: 0 auto;
     text-align: left;
+    color: thistle;
 }
 
 .form--login>fieldset>input[type="email"] {
@@ -63,4 +64,11 @@ fieldset {
 .button--close {
     position: relative;
     bottom: -2rem;
+}
+
+.submit__btn {
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
+    font-size: medium;
+    border-color: rgb(255, 182, 212);
 }

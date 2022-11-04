@@ -8,27 +8,54 @@
 
 .artist {
     background-color: #9f82d2;
-    border: dotted rgb(0, 0, 0);
+    border: dotted rgb(232, 119, 119);
     padding: 0.7rem;
     margin: 0.7rem;
-    width: 12em;
+    width: 15em;
 
 
 }
 
 .btn_btn-primary {
-    background-color: crimson;
+    background-color: rgb(230, 125, 146);
     color: rgb(0, 0, 0);
-    font-size: large;
+    font-size: medium;
     border-color: rgb(255, 182, 212);
 
 }
 
 .artistForm__title {
-    color: rgb(239, 123, 123);
+    color: rgb(232, 119, 119);
 
 }
 
 .artist-objs {
     text-align: center;
+}
+
+.header__item {
+    color: rgb(232, 119, 119);
+}
+
+.delete-button {
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
+    font-size: medium;
+    border-color: rgb(255, 182, 212);
+
+}
+
+.btn__btn-primary {
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
+    font-size: medium;
+    border-color: rgb(255, 182, 212);
+}
+
+.lists {
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
+    font-size: medium;
+    border-color: rgb(255, 182, 212);
+
 }

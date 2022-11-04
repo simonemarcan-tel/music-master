@@ -70,18 +70,19 @@ export const GenreList = () => {
     return (
 
         <div>
-            <h2>✩GENRE LIST✩</h2>
+            <h2 className="item__active">✩Genre List✩</h2>
 
             <article className="genres">
                 {
                     genres.map(
                         (genre) => {
                             return <section className="genre">
-                                <button
+                                <header>{genre.genreName}</header>
+                                <button className="genre-btn"
                                     id={genre.id}
                                     onClick={() => {
                                         navigate(`/artist/${genre.id}`)
-                                    }}>{genre.genreName}
+                                    }}>➡
                                 </button>
 
                             </section>

@@ -39,7 +39,7 @@ export const MyLikes = () => {
     return (
         <div>
 
-            <h2>✩LIKED ARTISTS✩</h2>
+            <h2 className="items-active">✩LIKED ARTISTS✩</h2>
 
             <article className="likes">
                 {
@@ -48,13 +48,15 @@ export const MyLikes = () => {
                             return (
 
                                 <section className="like">
-                                    <header>{like?.artist?.artistName}</header>
-                                    <button
-                                        id={like.id}
-                                        onClick={(clickEvent) => deleteButton(clickEvent, like)}
-                                        className="delete-like">
-                                        Delete Like
-                                    </button>
+                                    <header>Artist: {like?.artist?.artistName}</header>
+                                    <div className="objs">
+                                        <button
+                                            id={like.id}
+                                            onClick={(clickEvent) => deleteButton(clickEvent, like)}
+                                            className="delete-like">
+                                            Delete Like
+                                        </button>
+                                    </div>
 
 
 

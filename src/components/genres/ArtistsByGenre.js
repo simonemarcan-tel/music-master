@@ -22,20 +22,47 @@ export const ArtistsByGenre = () => {
     // TODO: Create the object to be saved to the API
 
     // TODO: Perform the fetch() to POST the object to the API
+    const loggedIn = JSON.parse(localStorage.getItem("music_user")).id
+    const handleSaveButtonClick = (event) => {
+        event.preventDefault()
 
+        const DataToSendToAPI = {
+            artistId: parseInt(event.target.id),
+            userId: loggedIn
+        }
 
+        return fetch(`http://localhost:8088/myLikes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+
+            },
+            body: JSON.stringify(DataToSendToAPI)
+        }
+        )
+            .then(response => response.json())
+            .then(() => {
+                navigate("/likes")
+            })
+    }
     return (
 
         <div>
-            <h2>✩ARTISTS OF {artists[0]?.genre?.genreName}✩</h2>
+            <h2>✩Artists of "{artists[0]?.genre?.genreName}"✩</h2>
 
             <article className="genres">
                 {
                     artists.map(
                         (artist) => {
                             return <section className="artists-genres">
-                                <section>{artist.artistName}
+                                <section>Artist: {artist.artistName}
                                 </section>
+                                <button
+                                    id={artist.id}
+                                    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                                    className="btn_btn-primary">
+                                    ♥︎
+                                </button>
 
                             </section>
                         }

@@ -1,0 +1,32 @@
+.genres {
+    display: flex;
+    flex-direction: column;
+}
+
+.genre {
+    background-color: #9f82d2;
+    border: dotted rgb(232, 119, 119);
+    padding: 0.7rem;
+    margin: 0.7rem;
+    width: 10em;
+    text-align: center;
+}
+
+.genre-btn {
+    background-color: rgb(232, 119, 119);
+    text-align: center;
+    font-size: medium;
+}
+
+.artists-genres {
+    background-color: #9f82d2;
+    border: dotted rgb(232, 119, 119);
+    padding: 0.7rem;
+    margin: 0.7rem;
+    width: 10em;
+    text-align: center;
+}
+
+.item__active {
+    color: rgb(232, 119, 119);
+}

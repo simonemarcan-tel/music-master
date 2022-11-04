@@ -9,14 +9,14 @@ button,
 input,
 select,
 textarea {
-  color: #3e0202;
+  color: #000000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
 
 body {
-  padding: 0 3rem;
+  padding: 2rem;
 }
 
 h1,

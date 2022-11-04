@@ -35,7 +35,7 @@ export const MyArtistList = () => {
      )
     */
     return <>
-        <h2>❉My Created Artists❉</h2>
+        <h2 className="title">❉My Created Artists❉</h2>
 
         <article className="forms">
             {
@@ -49,10 +49,13 @@ export const MyArtistList = () => {
                                     <section>Genre: {form.genre?.genreName}</section>
                                     <section> {form.popularArtist ? "★" : "(Lesser Known)"}
                                     </section>
-                                </section>
-                                <button onClick={() => {
-                                    navigate(`/artist/${form.id}/edit`)
-                                }}>Edit/Delete</button> </>)
+
+                                    <button
+                                        className="btn__onclick"
+                                        onClick={() => {
+                                            navigate(`/artist/${form.id}/edit`)
+                                        }}>✎</button>
+                                </section> </>)
                     }
                 )
             }

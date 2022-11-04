@@ -203,7 +203,7 @@ export const ArtistForm = () => {
             <button
 
                 onClick={(event) => handleSaveButtonClick(event)}
-                className="btn btn-primary">
+                className="btn__btn-primary">
                 ★Save Artist☆
             </button>
         </form>

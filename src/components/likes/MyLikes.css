@@ -4,13 +4,26 @@
 }
 
 .like {
-    background-color: pink;
-    border: dotted rgb(237, 184, 86);
+    background-color: #9f82d2;
+    border: dotted rgb(232, 119, 119);
     padding: 0.7rem;
-    margin: 0.5rem;
+    margin: 0.7rem;
+    width: 15em;
+    text-align: center;
 
 }
 
 .delete-like {
-    background-color: rgb(241, 113, 134);
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
+    border-color: rgb(255, 182, 212);
+
+}
+
+.objs {
+    text-align: center;
+}
+
+.items-active {
+    color: rgb(232, 119, 119);
 }

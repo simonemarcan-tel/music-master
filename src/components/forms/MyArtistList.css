@@ -4,9 +4,20 @@
 }
 
 .form {
-    background-color: pink;
+    background-color: #9f82d2;
     border: dotted rgb(0, 0, 0);
     padding: 0.7rem;
     margin: 0.5rem;
+    width: 15rem
+}
 
+.title {
+    color: rgb(232, 119, 119)
+}
+
+.btn__onclick {
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
+    font-size: medium;
+    border-color: rgb(255, 182, 212);
 }
