@@ -45,9 +45,9 @@ export const MyArtistList = () => {
                             <>
                                 <section className="form">
 
-                                    <header>{form.artistName}</header>
-                                    <section>{form.genre?.genreName}</section>
-                                    <section> {form.popularArtist ? "★" : ""}
+                                    <header>Name: {form.artistName}</header>
+                                    <section>Genre: {form.genre?.genreName}</section>
+                                    <section> {form.popularArtist ? "★" : "(Lesser Known)"}
                                     </section>
                                 </section>
                                 <button onClick={() => {

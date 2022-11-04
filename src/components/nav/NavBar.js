@@ -9,13 +9,12 @@ export const NavBar = () => {
         <section>
 
 
-            <li className="header__item
-            active">
+            <li className="header__item__active">
                 <h1>☆MUSIC MASTER★</h1>
             </li>
 
             <ul className="navbar">
-                <li className="navbar__item active">
+                <li className="navbar__item__active">
                     <Link className="navbar__link"
                         to="/artists">✯Artist List✯</Link>
                 </li>

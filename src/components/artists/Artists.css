@@ -1,12 +1,34 @@
-.artists {
+.header- .artists {
     display: flex;
     flex-direction: column;
+    flex-shrink: initial;
+
+
 }
 
 .artist {
-    background-color: rgb(242, 213, 167);
-    border: dotted pink;
+    background-color: #9f82d2;
+    border: dotted rgb(0, 0, 0);
     padding: 0.7rem;
     margin: 0.7rem;
+    width: 12em;
 
+
+}
+
+.btn_btn-primary {
+    background-color: crimson;
+    color: rgb(0, 0, 0);
+    font-size: large;
+    border-color: rgb(255, 182, 212);
+
+}
+
+.artistForm__title {
+    color: rgb(239, 123, 123);
+
+}
+
+.artist-objs {
+    text-align: center;
 }

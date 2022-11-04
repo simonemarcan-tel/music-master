@@ -1,3 +1,7 @@
+.header__item__active {
+    background-image: image();
+}
+
 .navbar {
     display: flex;
     flex-wrap: nowrap;

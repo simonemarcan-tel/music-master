@@ -105,17 +105,20 @@ export const ArtistList = () => {
                 {
                     filteredArtists.map(
                         (artist) => {
+
                             return <section className="artist">
-                                <header>{artist.artistName}</header>
-                                <header>{artist.genre?.genreName}</header>
-                                <footer> {artist.popularArtist ? "★" : ""}
-                                </footer>
-                                <button
-                                    id={artist.id}
-                                    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                                    className="btn btn-primary">
-                                    ♡
-                                </button>
+                                <div className="artist-objs">
+                                    <header>Name: {artist.artistName}</header>
+                                    <header>Genre: {artist.genre?.genreName}</header>
+                                    <footer> {artist.popularArtist ? "★" : ""}
+                                    </footer>
+                                    <button
+                                        id={artist.id}
+                                        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                                        className="btn_btn-primary">
+                                        ♥︎
+                                    </button>
+                                </div>
                             </section>
                         }
                     )
