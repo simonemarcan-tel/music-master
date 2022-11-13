@@ -17,7 +17,7 @@
 
 .header__item__active {
     text-align: center;
-    color: thistle;
+    color: rgb(205, 73, 205);
     list-style-type: none;
 }
 
@@ -30,4 +30,8 @@
     background-color: rgb(255, 182, 212);
     flex-wrap: nowrap;
     flex-basis: 20%;
+}
+
+.header__item__one {
+    color: rgb(217, 66, 99);
 }

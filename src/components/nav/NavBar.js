@@ -9,37 +9,37 @@ export const NavBar = () => {
         <section>
 
 
-            <li className="header__item__active">
-                <h1>☆★☆★☆MUSIC MASTER☆★☆★☆</h1>
-            </li>
 
-            <ul className="navbar">
-                <li className="navbar__item__active">
-                    <Link className="navbar__link"
-                        to="/artists">✯Artist List✯</Link>
-                </li>
-                <li className="navbar__item__active">
-                    <Link className="navbar__link"
-                        to="/genres">✯Genres✯</Link>
-                </li>
-                <li className="navbar__item__active">
-                    <Link className="navbar__link" to="/likes">✯My Likes✯</Link>
-                </li>
-                <li className="navbar__item__active">
-                    <Link className="navbar__link"
-                        to="/forms">✯My Artists✯</Link>
-                </li>
-
-                {
+            <head className="header__item__one">☆★☆★☆MUSIC MASTER☆★☆★☆</head>
+            <body>
+                <ul className="navbar">
                     <li className="navbar__item__active">
-                        <Link className="navbar__link" to="" onClick={() => {
-                            localStorage.removeItem("music_user")
-                            navigate("/", { replace: true })
-                        }}>✯Logout✯</Link>
+                        <Link className="navbar__link"
+                            to="/artists">✯Artist List✯</Link>
                     </li>
-                }
-            </ul>
-        </section>
+                    <li className="navbar__item__active">
+                        <Link className="navbar__link"
+                            to="/genres">✯Genres✯</Link>
+                    </li>
+                    <li className="navbar__item__active">
+                        <Link className="navbar__link" to="/likes">✯My Likes✯</Link>
+                    </li>
+                    <li className="navbar__item__active">
+                        <Link className="navbar__link"
+                            to="/forms">✯My Artists✯</Link>
+                    </li>
+
+                    {
+                        <li className="navbar__item__active">
+                            <Link className="navbar__link" to="" onClick={() => {
+                                localStorage.removeItem("music_user")
+                                navigate("/", { replace: true })
+                            }}>✯Logout✯</Link>
+                        </li>
+                    }
+                </ul>
+            </body>
+        </section >
     )
 }
 

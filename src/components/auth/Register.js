@@ -59,21 +59,21 @@ export const Register = (props) => {
                 <h1>☆★☆★☆MUSIC MASTER☆★☆★☆</h1>
                 <h2 className="h3 mb-3 font-weight-normal">𝄞 Please Register for Music Master</h2>
                 <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
+                    <label htmlFor="fullName" className="name-bcg">Name ⬇</label>
                     <input onChange={updateUser}
                         type="text" id="fullName" className="form-control"
                         placeholder="Enter your name" required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="email"> Email address </label>
+                    <label htmlFor="email" className="email-bcg">  Email  ⬇ </label>
                     <input onChange={updateUser}
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
                     <button
-                        className="submit__btn"
-                        type="submit"> Register </button>
+                        className="submit-register"
+                        type="submit-register"> Register </button>
                 </fieldset>
             </form>
         </main>

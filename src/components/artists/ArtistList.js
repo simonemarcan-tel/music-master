@@ -92,38 +92,40 @@ export const ArtistList = () => {
     return (
 
         <div>
+            <body className="background background-image url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/prince-souci-and-princess-mignon-minette-on-the-fan-kay-nielsen.jpg)">
+                <button className="lists" onClick={() => { setPopular(true) }}>★Popular Artists★</button>
+                <button className="lists" onClick={() => { setPopular(false) }}>★All Artists★</button>
+                <button className="lists" onClick={() => navigate("/artist/create")}>★Create Artist Ticket★</button>
 
-            <button className="lists" onClick={() => { setPopular(true) }}>★Popular Artists★</button>
-            <button className="lists" onClick={() => { setPopular(false) }}>★All Artists★</button>
-            <button className="lists" onClick={() => navigate("/artist/create")}>★Create Artist Ticket★</button>
 
 
+                <h2 className="header__item ">✩ARTIST LIST✩</h2>
+                <article className="artists">
+                    {
+                        filteredArtists.map(
+                            (artist) => {
 
-            <h2 className="header__item">✩ARTIST LIST✩</h2>
-            <article className="artists">
-                {
-                    filteredArtists.map(
-                        (artist) => {
+                                return <section className="artist-list-comp">
+                                    <div className="artist-objs">
+                                        <header>Name: {artist.artistName}</header>
+                                        <header>Genre: {artist.genre?.genreName}</header>
+                                        <footer> {artist.popularArtist ? "★(Popular Artist)" : "(Lesser Known)"}
+                                        </footer>
+                                        <button
+                                            id={artist.id}
+                                            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                                            className="btn_btn-primary">
+                                            ♥︎
+                                        </button>
 
-                            return <section className="artist">
-                                <div className="artist-objs">
-                                    <header>Name: {artist.artistName}</header>
-                                    <header>Genre: {artist.genre?.genreName}</header>
-                                    <footer> {artist.popularArtist ? "★(Popular Artist)" : "(Lesser Known)"}
-                                    </footer>
-                                    <button
-                                        id={artist.id}
-                                        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                                        className="btn_btn-primary">
-                                        ♥︎
-                                    </button>
-                                </div>
-                            </section>
-                        }
-                    )
-                }
+                                    </div>
+                                </section>
+                            }
+                        )
+                    }
 
-            </article>
+                </article>
+            </body>
         </div>
     )
 
