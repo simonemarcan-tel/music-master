@@ -39,7 +39,7 @@ export const MyLikes = () => {
     return (
         <div>
 
-            <h2 className="items-active">✩LIKED ARTISTS✩</h2>
+            <h2 className="items-active">✩Liked Artists✩</h2>
 
             <article className="likes">
                 {

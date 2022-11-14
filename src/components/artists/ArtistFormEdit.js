@@ -88,7 +88,7 @@ export const FormEdit = () => {
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group size 12rem">
+            <div className="form-group">
                 <select
                     onChange={
                         (evt) => {
@@ -109,7 +109,7 @@ export const FormEdit = () => {
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            <div className="form-group-pop">
                 <label htmlFor="name">Popular Artist?</label>
                 <input type="checkbox"
                     value={form.popularArtist}

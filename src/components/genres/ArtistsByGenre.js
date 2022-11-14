@@ -48,7 +48,7 @@ export const ArtistsByGenre = () => {
     return (
 
         <div>
-            <h2>✩Artists of "{artists[0]?.genre?.genreName}"✩</h2>
+            <h2 className="gen-title">✩Artists of "{artists[0]?.genre?.genreName}"✩</h2>
 
             <article className="genres">
                 {

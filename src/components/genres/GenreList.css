@@ -5,28 +5,57 @@
 
 .genre {
     background-color: #9f82d2;
-    border: dotted rgb(232, 119, 119);
+    border: double rgb(232, 119, 119);
     padding: 0.7rem;
     margin: 0.7rem;
-    width: 10em;
+    width: 15rem;
     text-align: center;
+    font-size: large;
+    font-family: fantasy;
 }
 
 .genre-btn {
-    background-color: rgb(232, 119, 119);
-    text-align: center;
+    background-color: rgb(230, 125, 146);
+    color: rgb(0, 0, 0);
     font-size: medium;
+    border: outset rgb(255, 182, 212);
+    text-align: center;
+    width: 2rem;
+    margin: 1rem;
 }
 
 .artists-genres {
     background-color: #9f82d2;
-    border: dotted rgb(232, 119, 119);
+    border: double rgb(232, 119, 119);
     padding: 0.7rem;
-    margin: 0.7rem;
-    width: 10em;
+    margin-left: 1rem;
+    margin-bottom: 0.4rem;
+    width: 15em;
     text-align: center;
+    font-size: large;
+    font-family: fantasy;
 }
 
 .item__active {
-    color: rgb(232, 119, 119);
+    color: #310873;
+    background-color: rgba(255, 182, 212, 0.86);
+    width: 20rem;
+    text-align: center;
+    font-size: 25px;
+    font-family: fantasy;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: #9f82d2 double;
+}
+
+.gen-title {
+    color: #310873;
+    background-color: rgba(255, 182, 212, 0.86);
+    width: 20rem;
+    text-align: center;
+    font-size: 25px;
+    font-family: fantasy;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: #9f82d2 double;
 }

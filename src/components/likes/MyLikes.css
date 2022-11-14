@@ -1,27 +1,46 @@
+.items-active {
+    color: #310873;
+    background-color: rgba(255, 182, 212, 0.871);
+    width: 20rem;
+    text-align: center;
+    font-size: 25px;
+    font-family: fantasy;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: #9f82d2 double;
+}
+
 .likes {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .like {
     background-color: #9f82d2;
-    border: dotted rgb(232, 119, 119);
+    border: double rgb(232, 119, 119);
     padding: 0.7rem;
-    margin: 0.7rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     width: 15em;
     text-align: center;
+    font-size: medium;
+    font-family: fantasy;
 
 }
 
 .delete-like {
     background-color: rgb(230, 125, 146);
     color: rgb(0, 0, 0);
-    border-color: rgb(255, 182, 212);
+    border: outset rgb(255, 182, 212);
+    font-size: small;
 
 }
 
 .objs {
     text-align: center;
+    size: 12rem;
 }
 
 .items-active {

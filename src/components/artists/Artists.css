@@ -1,23 +1,25 @@
 .header- .artists {
     display: flex;
     flex-direction: column;
-    flex-shrink: initial;
-    flex-wrap: wrap;
 
 
 }
 
+.artists {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
 .artist-list-comp {
+    flex-wrap: wrap;
     background-color: #9f82d2;
-    border: dotted rgb(232, 119, 119);
+    border: double rgb(232, 119, 119);
     padding: 0.7rem;
     margin: 0.7rem;
-    width: 15Rem;
-    height: 8rem;
-    padding: 1rem;
+    width: 15rem;
+    height: 9rem;
     font-family: fantasy;
-    flex-direction: row;
-
 
 }
 
@@ -25,53 +27,122 @@
     background-color: rgb(230, 125, 146);
     color: rgb(0, 0, 0);
     font-size: medium;
-    border-color: rgb(255, 182, 212);
-
+    border: outset rgb(255, 182, 212);
+    text-align: center;
+    width: 2rem;
+    margin: 1rem;
 }
 
 .artistForm__title {
-    color: rgb(232, 119, 119);
+    color: #310873;
+    background-color: rgba(255, 182, 212, 0.869);
+    width: 20rem;
+    text-align: center;
+    font-size: 25px;
+    font-family: fantasy;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: #9f82d2 double;
 
 }
 
 .artist-objs {
     text-align: center;
+    flex-wrap: wrap;
+
 }
 
 .header__item {
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 182, 212);
-    width: 15rem;
+    color: #310873;
+    background-color: rgba(255, 182, 212, 0.873);
+    width: 20rem;
     text-align: center;
-    font-size: larger;
+    font-size: 25px;
     font-family: fantasy;
-    margin-top: 1rem;
-
-
+    margin: 1rem;
+    padding: 0.5rem;
+    border: #9f82d2 double;
 }
 
 .delete-button {
-    background-color: rgb(230, 125, 146);
-    color: rgb(0, 0, 0);
+    font-family: fantasy;
+    margin-top: 1rem;
+    border: outset rgb(255, 182, 212);
+    padding: .3em;
     font-size: medium;
-    border-color: rgb(255, 182, 212);
-    shape-rendering: geometricPrecision;
+    background-color: #9f82d2;
+    color: rgb(255, 182, 212);
+    margin: 0.7rem;
 }
 
 .btn__btn-primary {
-    background-color: rgb(230, 125, 146);
-    color: rgb(0, 0, 0);
+    font-family: fantasy;
+    margin-top: 1rem;
+    border: outset rgb(255, 182, 212);
+    padding: .3em;
     font-size: medium;
-    border-color: rgb(255, 182, 212);
-    ;
+    background-color: #9f82d2;
+    color: rgb(255, 182, 212);
+    margin-left: 3rem;
 }
 
 .lists {
     background-color: rgb(230, 125, 146);
-    color: #000000;
+    color: #310873;
     font-size: medium;
     font-family: fantasy;
-    border-color: rgb(255, 182, 212);
-    border-width: 0.5rem;
+    border: outset rgb(255, 182, 212);
+    border-width: 0.3rem;
+    margin-top: .7rem;
+    width: 12rem;
+    margin-bottom: 0.7rem;
+    margin-left: 0.7rem;
+}
 
+.form-group {
+    font-size: large;
+    text-align: left;
+    font-family: fantasy;
+    color: #310873;
+    padding: .5rem;
+    margin: 1rem;
+
+}
+
+
+.list-btns {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.form-group-pop {
+
+    width: 12rem;
+    margin-left: 1rem;
+    font-size: large;
+    text-align: center;
+    font-family: fantasy;
+    color: #310873;
+}
+
+.form-group-p2 {
+    width: 12rem;
+
+    margin-top: 2rem;
+    font-size: large;
+    text-align: center;
+    font-family: fantasy;
+    color: #310873;
+}
+
+.page-form {
+    background-color: pink;
+    margin: 3rem;
+    text-align: left;
+}
+
+
+.form-control {
+    color: white;
 }

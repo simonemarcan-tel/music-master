@@ -92,15 +92,15 @@ export const ArtistList = () => {
     return (
 
         <div>
-            <body className="background background-image url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/prince-souci-and-princess-mignon-minette-on-the-fan-kay-nielsen.jpg)">
+            <h2 className="header__item ">✩Artist List✩</h2>
+            <body className="list-btns">
                 <button className="lists" onClick={() => { setPopular(true) }}>★Popular Artists★</button>
                 <button className="lists" onClick={() => { setPopular(false) }}>★All Artists★</button>
                 <button className="lists" onClick={() => navigate("/artist/create")}>★Create Artist Ticket★</button>
 
 
 
-                <h2 className="header__item ">✩ARTIST LIST✩</h2>
-                <article className="artists">
+                <article className="flex-wrap">
                     {
                         filteredArtists.map(
                             (artist) => {

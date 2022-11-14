@@ -141,71 +141,70 @@ export const ArtistForm = () => {
         [] //initial state
     )
     return (
-        <form className="artistForm">
+        <form className="artistFor">
             <h2 className="artistForm__title">☆New Artist Ticket★</h2>
-            <header>
+            <div className="page-form">
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="artistName">Artist Name:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="Etta James"
+                            value={form.artistName}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...form }
+                                    copy.artistName = evt.target.value
+                                    update(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <select
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...form }
+                                    copy.genreId = parseInt(evt.target.value)
+                                    update(copy)
+                                }
+                            }>
+                            <option className="genre-drop">Select A Genre
+                            </option>
+                            {genres.map((genre) => (
 
-            </header>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="artistName">Artist Name:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Etta James"
-                        value={form.artistName}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...form }
-                                copy.artistName = evt.target.value
-                                update(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <select
-                        onChange={
-                            (evt) => {
-                                const copy = { ...form }
-                                copy.genreId = parseInt(evt.target.value)
-                                update(copy)
-                            }
-                        }>
-                        <option>Select A Genre
-                        </option>
-                        {genres.map((genre) => (
+                                <option className="genre-drop-opt"
+                                    value={genre.id}>{genre.genreName}</option>
+                            ))}
 
-                            <option
-                                value={genre.id}>{genre.genreName}</option>
-                        ))}
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group-p2">
+                        <label htmlFor="name">★ Popular Artist? </label>
+                        <input type="checkbox"
+                            value={form.popularArtist}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...form }
+                                    copy.popularArtist = evt.target.checked
+                                    update(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
 
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Popular Artist?</label>
-                    <input type="checkbox"
-                        value={form.popularArtist}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...form }
-                                copy.popularArtist = evt.target.checked
-                                update(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
+                <button
 
-            <button
-
-                onClick={(event) => handleSaveButtonClick(event)}
-                className="btn__btn-primary">
-                ★Save Artist☆
-            </button>
+                    onClick={(event) => handleSaveButtonClick(event)}
+                    className="btn__btn-primary">
+                    ★Save Artist☆
+                </button>
+            </div>
         </form>
     )
 
