@@ -1,6 +1,6 @@
 .header- .artists {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 
 
 }
@@ -8,7 +8,7 @@
 .artists {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+
 }
 
 .artist-list-comp {
@@ -17,10 +17,11 @@
     border: double rgb(232, 119, 119);
     padding: 0.7rem;
     margin: 0.7rem;
-    width: 15rem;
+    max-width: 15rem;
+    min-width: 15rem;
     height: 9rem;
     font-family: fantasy;
-
+    flex-wrap: wrap;
 }
 
 .btn_btn-primary {
@@ -29,14 +30,14 @@
     font-size: medium;
     border: outset rgb(255, 182, 212);
     text-align: center;
-    width: 2rem;
+    max-width: 2rem;
     margin: 1rem;
 }
 
 .artistForm__title {
     color: #310873;
     background-color: rgba(255, 182, 212, 0.869);
-    width: 20rem;
+    max-width: 20rem;
     text-align: center;
     font-size: 25px;
     font-family: fantasy;
@@ -55,7 +56,7 @@
 .header__item {
     color: #310873;
     background-color: rgba(255, 182, 212, 0.873);
-    width: 20rem;
+    max-width: 20rem;
     text-align: center;
     font-size: 25px;
     font-family: fantasy;
@@ -94,7 +95,7 @@
     border: outset rgb(255, 182, 212);
     border-width: 0.3rem;
     margin-top: .7rem;
-    width: 12rem;
+    max-width: 12rem;
     margin-bottom: 0.7rem;
     margin-left: 0.7rem;
 }
@@ -118,7 +119,7 @@
 
 .form-group-pop {
 
-    width: 12rem;
+    max-width: 12rem;
     margin-left: 1rem;
     font-size: large;
     text-align: center;

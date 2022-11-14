@@ -100,7 +100,7 @@ export const ArtistList = () => {
 
 
 
-                <article className="flex-wrap">
+                <article className="artists">
                     {
                         filteredArtists.map(
                             (artist) => {

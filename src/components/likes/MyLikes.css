@@ -1,18 +1,18 @@
 .items-active {
     color: #310873;
     background-color: rgba(255, 182, 212, 0.871);
-    width: 20rem;
+    max-width: 20rem;
     text-align: center;
     font-size: 25px;
     font-family: fantasy;
     margin: 1rem;
     padding: 0.5rem;
     border: #9f82d2 double;
+
 }
 
 .likes {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -23,7 +23,8 @@
     margin-left: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    width: 15em;
+    max-width: 15em;
+    min-width: 15em;
     text-align: center;
     font-size: medium;
     font-family: fantasy;
@@ -44,5 +45,5 @@
 }
 
 .items-active {
-    color: rgb(232, 119, 119);
+    color: rgb(68, 12, 133);
 }

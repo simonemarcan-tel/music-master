@@ -1,6 +1,6 @@
 .genres {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .genre {
@@ -8,10 +8,12 @@
     border: double rgb(232, 119, 119);
     padding: 0.7rem;
     margin: 0.7rem;
-    width: 15rem;
+    max-width: 15rem;
+    min-width: 15rem;
     text-align: center;
     font-size: large;
     font-family: fantasy;
+    flex-wrap: wrap;
 }
 
 .genre-btn {
@@ -20,7 +22,7 @@
     font-size: medium;
     border: outset rgb(255, 182, 212);
     text-align: center;
-    width: 2rem;
+    max-width: 2rem;
     margin: 1rem;
 }
 
@@ -30,7 +32,8 @@
     padding: 0.7rem;
     margin-left: 1rem;
     margin-bottom: 0.4rem;
-    width: 15em;
+    max-width: 15em;
+    min-width: 15em;
     text-align: center;
     font-size: large;
     font-family: fantasy;
@@ -39,7 +42,7 @@
 .item__active {
     color: #310873;
     background-color: rgba(255, 182, 212, 0.86);
-    width: 20rem;
+    max-width: 20rem;
     text-align: center;
     font-size: 25px;
     font-family: fantasy;
@@ -51,7 +54,7 @@
 .gen-title {
     color: #310873;
     background-color: rgba(255, 182, 212, 0.86);
-    width: 20rem;
+    max-width: 20rem;
     text-align: center;
     font-size: 25px;
     font-family: fantasy;
