@@ -85,6 +85,7 @@
     background-color: #9f82d2;
     color: rgb(255, 182, 212);
     margin-left: 3rem;
+    margin-bottom: 1rem;
 }
 
 .lists {
@@ -130,7 +131,7 @@
 .form-group-p2 {
     width: 12rem;
 
-    margin-top: 2rem;
+    margin-top: .2rem;
     font-size: large;
     text-align: center;
     font-family: fantasy;
@@ -139,11 +140,23 @@
 
 .page-form {
     background-color: pink;
-    margin: 3rem;
+    margin: 1rem;
     text-align: left;
 }
 
 
 .form-control {
     color: white;
+}
+
+.foot-f {
+    color: thistle;
+    font-size: large;
+    text-align: center;
+}
+
+.foot-g {
+    color: thistle;
+    font-size: large;
+    text-align: center;
 }

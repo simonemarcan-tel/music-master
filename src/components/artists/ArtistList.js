@@ -100,6 +100,7 @@ export const ArtistList = () => {
 
 
 
+
                 <article className="artists">
                     {
                         filteredArtists.map(
@@ -126,6 +127,7 @@ export const ArtistList = () => {
 
                 </article>
             </body>
+            <footer className="foot-f">★★★★★★★★★★★★★★★★★★★★★</footer>
         </div>
     )
 

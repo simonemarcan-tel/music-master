@@ -205,6 +205,7 @@ export const ArtistForm = () => {
                     ★Save Artist☆
                 </button>
             </div>
+            <footer className="foot-g">★★★★★★★★★★★★★★★★★★★★★</footer>
         </form>
     )
 
